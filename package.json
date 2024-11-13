@@ -3,7 +3,11 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@iconify/json": "^2.2.271",
     "@types/bun": "latest",
+    "@unocss/postcss": "^0.64.0",
+    "@unocss/preset-attributify": "^0.64.0",
+    "unocss": "^0.64.0",
     "vitepress": "^1.5.0"
   },
   "peerDependencies": {
@@ -13,5 +17,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@shikijs/vitepress-twoslash": "^1.22.2"
   }
 }
