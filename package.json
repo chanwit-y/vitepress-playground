@@ -10,7 +10,7 @@
     "@unocss/preset-attributify": "^0.64.0",
     "drizzle-orm": "^0.36.1",
     "drizzle-typebox": "^0.1.1",
-    "unocss": "^0.64.0",
+    "@shikijs/vitepress-twoslash": "^1.22.2",
     "vitepress": "^1.5.0"
   },
   "peerDependencies": {
@@ -22,6 +22,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@shikijs/vitepress-twoslash": "^1.22.2"
+    "daisyui": "^4.12.14",
+    "unocss": "^0.64.0",
+    "unocss-preset-daisy": "^7.0.0"
   }
 }
