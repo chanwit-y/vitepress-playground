@@ -26,6 +26,13 @@ import { relations } from 'drizzle-orm'
 
 ::: code-group
 
+
+## drizzle-typebox
+We may convert the `user` table into TypeBox models by using `drizzle-typebox`:
+
+
+:::
+
 ```ts twoslash [src/database/schema.ts]
 import { relations } from 'drizzle-orm'
 import {
@@ -59,10 +66,11 @@ export const Table = {
 
 :::
 
-## drizzle-typebox
-We may convert the `user` table into TypeBox models by using `drizzle-typebox`:
-
-
-:::
-
 ## Hi
+xxxxxxx
+
+<script setup>
+  import Ex from "./.vitepress/components/example.vue"
+</script>
+
+<Ex />
