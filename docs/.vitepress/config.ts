@@ -1,4 +1,4 @@
-import UnoCSS from "unocss/vite";
+// import UnoCSS from "unocss/vite";
 import { defineConfig } from "vitepress";
 import { transformerTwoslash } from "@shikijs/vitepress-twoslash";
 
@@ -8,9 +8,9 @@ export default defineConfig({
   description: "A VitePress Site",
   ignoreDeadLinks: true,
   lastUpdated: true,
-  vite: {
-    plugins: [UnoCSS()],
-  },
+  // vite: {
+  //   plugins: [UnoCSS()],
+  // },
   markdown: {
     theme: {
       light: "github-light",
@@ -263,5 +263,10 @@ export default defineConfig({
         ],
       },
     ],
+    socialLinks: [
+      { icon: 'github', link: '' },
+      { icon: 'twitter', link: '' },
+      { icon: 'discord', link: '' }
+  ],
   },
 });

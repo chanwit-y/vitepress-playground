@@ -1,5 +1,9 @@
 /* @unocss; */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --vp-c-brand-1: #f06292;
   --vp-c-brand-light: #ff94c2;
@@ -53,10 +57,16 @@ html {
   filter: invert(1);
 }
 
-/* #VPSidebarNav > .group > .VPSidebarItem > .item > .text::before {
+#VPSidebarNav > .group > .VPSidebarItem > .item > .text::before {
   @apply mr-2 block w-4 h-4 bg-cover;
   content: "";
-} */
+}
+
+/* #VPSidebarNav > .group:nth-child(1) > .VPSidebarItem > .item > .text::before { */
+#VPSidebarNav > .group:nth-child(2) > .VPSidebarItem > .item > .text::before {
+  /* color: #ba2d65  */
+  background-image: url('../../public/assets/coffee.svg');
+}
 
 #VPSidebarNav > .group {
   @apply border-t-0;
@@ -106,6 +116,53 @@ html {
           }
       }
   }
+}
+
+.VPNav {
+  &:hover {
+      z-index: 50 !important;
+
+      & > .VPNavBar {
+          @apply dark:!bg-slate-900/40;
+          background-color: rgba(255, 255, 255, .4) !important;
+
+          & > .wrapper > .container > .content > .content-body {
+              @apply bg-transparent;
+          }
+      }
+  }
+}
+
+.VPNavBar {
+  @apply !border-0 dark:!bg-slate-900/70;
+  background-color: rgba(255, 255, 255, .8) !important;
+  backdrop-filter: blur(12px);
+
+  & > .container {
+      /* background-color: rgba(255, 255, 255, .6) !important; */
+
+      & > .content,
+      & > .title {
+          background: color-mix(in srgb, var(--vp-c-bg) 80%, transparent);
+      }
+  }
+
+  /* Curtain is removed from VitePress? */
+  /* & > .container > .content {
+      border-bottom: 0;
+
+      & > .curtain::before {
+          backdrop-filter: blur(12px);
+          background: linear-gradient(
+              var(--vp-nav-bg-color),
+              transparent 100%
+          ) !important;
+      }
+
+      & > .content-body {
+          background-color: transparent;
+      }
+  } */
 }
 
 /* #VPSidebarNav { */

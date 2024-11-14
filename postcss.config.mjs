@@ -1,7 +1,9 @@
-import UnoCSS from '@unocss/postcss'
-
+// postcss.config.js
 export default {
-  plugins: [
-    UnoCSS(),
-  ],
+  plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': 'postcss-nesting',
+      tailwindcss: {},
+      autoprefixer: {}
+  }
 }

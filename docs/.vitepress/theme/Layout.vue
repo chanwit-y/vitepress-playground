@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import 'virtual:uno.css'
+// import 'virtual:uno.css'
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 
@@ -11,56 +11,111 @@ const { site, frontmatter } = useData()
   <div v-if="frontmatter.home">
     <h1>{{ site.title }}</h1>
     <p>{{ site.description }}</p>
-    <div i-line-md-bell-loop />
+    <div class="i-line-md-bell-loop" />
 
-    <div class="card bg-primary text-primary-content w-96">
-      <div class="card-body">
-        <h2 class="card-title">Card title!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="card-actions justify-end">
-          <button class="btn">Buy Now</button>
-        </div>
-      </div>
-    </div>
 
-    <div class="collapse collapse-arrow bg-base-200">
-      <input type="radio" name="my-accordion-2"  />
-      <div class="collapse-title text-xl font-medium">
-        Click to open this one and close others
-      </div>
-      <div class="collapse-content">
-        <p>hello</p>
-      </div>
-    </div>
-    <div class="collapse collapse-arrow bg-base-200">
-      <input type="radio" name="my-accordion-2" />
-      <div class="collapse-title text-xl font-medium">
-        Click to open this one and close others
-      </div>
-      <div class="collapse-content">
-        <p>hello</p>
-      </div>
-    </div>
-    <div class="collapse collapse-arrow bg-base-200">
-      <input type="radio" name="my-accordion-2" />
-      <div class="collapse-title text-xl font-medium">
-        Click to open this one and close others
-      </div>
-      <div class="collapse-content">
-        <p>hello</p>
-      </div>
-    </div>
 
-    <span text-red>Hi</span>
     <ul>
       <li><a href="/markdown-examples.html">Markdown Examples</a></li>
       <li><a href="/api-examples.html">API Examples</a></li>
     </ul>
   </div>
   <div v-else>
-    <a href="/">Home</a>
+    <!-- <a href="/">Home</a> -->
     <DefaultTheme.Layout>
-      <Content />
+      <template #doc-top>
+        <div
+          class="absolute flex flex-col z-[40] w-full !max-w-full items-center justify-center bg-transparent transition-bg overflow-hidden h-screen">
+          <div class="jumbo absolute opacity-60" />
+        </div>
+        <Content />
+        <div id="box" class="absolute top-10 left-10 w-5 h-5 bg-slate-50" />
+      </template>
     </DefaultTheme.Layout>
   </div>
 </template>
+
+
+
+<!-- <style scoped> -->
+<style>
+@keyframes jumbo {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+.jumbo {
+  --stripes: repeating-linear-gradient(100deg,
+      #fff 0%,
+      #fff 7%,
+      transparent 10%,
+      transparent 12%,
+      #fff 16%);
+  --stripesDark: repeating-linear-gradient(100deg,
+      #000 0%,
+      #000 7%,
+      transparent 10%,
+      transparent 12%,
+      #000 16%);
+  --rainbow: repeating-linear-gradient(100deg,
+      #60a5fa 10%,
+      #e879f9 16%,
+      #5eead4 22%,
+      #60a5fa 30%);
+
+  contain: strict;
+  contain-intrinsic-size: 100vw 40vh;
+
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
+
+  height: inherit;
+
+  /* Webkit GPU acceleration hack for some reason */
+  /* https://stackoverflow.com/a/21364496 */
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+
+  filter: invert(100%);
+  mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.jumbo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 200%, 100%;
+  /* background-attachment: fixed; */
+  mix-blend-mode: difference;
+}
+
+.-animate.jumbo::after {
+  animation: jumbo 90s linear infinite;
+}
+
+.-static.jumbo::after {
+  animation: unset !important;
+}
+
+/* .-safari::after {
+    animation: unset !important;
+} */
+
+.dark .jumbo {
+  background-image: var(--stripesDark), var(--rainbow);
+  filter: opacity(50%) saturate(200%);
+}
+
+.dark .jumbo::after {
+  background-image: var(--stripesDark), var(--rainbow);
+}
+</style>
