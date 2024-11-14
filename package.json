@@ -22,7 +22,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "daisyui": "^4.12.14",
+    "daisyui": "^3.0.0",
     "unocss": "^0.64.0",
     "unocss-preset-daisy": "^7.0.0"
   }
