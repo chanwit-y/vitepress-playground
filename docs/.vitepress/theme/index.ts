@@ -6,9 +6,6 @@ import Layout from './Layout.vue'
 import DefaultTheme from 'vitepress/theme'
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 
-// import '@unocss/reset/tailwind.css'
-// import '@unocss/reset/tailwind.css'
-// import 'uno.css'
 import '@shikijs/vitepress-twoslash/style.css'
 import './style.css'
 
