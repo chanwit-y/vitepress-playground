@@ -7,9 +7,9 @@ import { nextTick, provide } from 'vue';
 // https://vitepress.dev/reference/runtime-api#usedata
 const { site, frontmatter, isDark: darkTheme } = useData()
 
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+// const enableTransitions = () =>
+//   'startViewTransition' in document &&
+//   window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   // console.log('toggle-appearance', x, y)
@@ -19,12 +19,12 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   if (lastSwitch !== null && !isNaN(+lastSwitch)) {
     const lastSwitchTime = +lastSwitch
 
-    if (Date.now() - lastSwitchTime > 3 * 60 * 1000) {
-      if (document.documentElement.classList.contains('-animated'))
-        document.documentElement.classList.remove('-animated')
-    } else {
+    // if (Date.now() - lastSwitchTime > 3 * 60 * 1000) {
+    //   if (document.documentElement.classList.contains('-animated'))
+    //     document.documentElement.classList.remove('-animated')
+    // } else {
       document.documentElement.classList.add('-animated')
-    }
+    // }
   }
 
   if (document.startViewTransition !== undefined)
@@ -91,8 +91,8 @@ const onClick = async () => {
 }
 
 ::view-transition-group(root) {
-  /* animation-timing-function: var(--expo-in); */
-  animation-timing-function: linear;
+  animation-timing-function: var(--expo-in);
+  /* animation-timing-function: linear; */
   z-index: 100;
 }
 
@@ -170,7 +170,7 @@ const onClick = async () => {
     opacity: 0;
   }
 } */
-/* 
+
 @keyframes jumbo {
   from {
     background-position: 50% 50%, 50% 50%;
@@ -243,5 +243,5 @@ const onClick = async () => {
 
 .dark .jumbo::after {
   background-image: var(--stripesDark), var(--rainbow);
-} */
+}
 </style>
