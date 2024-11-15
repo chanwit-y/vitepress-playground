@@ -9,6 +9,7 @@
     "@types/bun": "latest",
     "drizzle-orm": "^0.36.1",
     "drizzle-typebox": "^0.1.1",
+    "view-transitions-api-types": "^0.1.1",
     "vitepress": "^1.5.0"
   },
   "peerDependencies": {
